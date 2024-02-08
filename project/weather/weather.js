@@ -1,4 +1,4 @@
-const API_KEY = "f250e2a597db4c4ba0864231231312";
+const API_KEY = "0443cbee180a474089a54409240802";
 const url = "http://api.weatherapi.com/v1/current.json?key=";
 
 pune("pune")
