@@ -1,11 +1,12 @@
 const API_KEY = "0443cbee180a474089a54409240802";
 const url = "http://api.weatherapi.com/v1/current.json?key=";
-
+"http://api.weatherapi.com/v1/current.json?key=&q=pune&aqi=no0443cbee180a474089a54409240802"
 pune("pune")
 async function pune(query)
 {
     const res = await fetch(`${url}${API_KEY}&q=${query}&aqi=no`);
     const allinformation = await res.json();
+    console.log(allinformation)
 
     let humidity=allinformation.current.humidity
     let Latitude=allinformation.location.lat
@@ -63,18 +64,21 @@ async function delhi(query)
     document.getElementById("sunrise_delhi").innerHTML=Wind_Degree
     document.getElementById("sunset_delhi").innerHTML=Wind_Speed
 }
+locationed("Ichalkaranji");
 function search(){
     const searchText = document.getElementById("input");
-    const value=searchText.value
-    locationed(value);
+    const values=searchText.value
+    locationed(values);
+    console.log(typeof values)
+    console.log(values)
 }
 
-locationed("Ichalkaranji");
 
-async function locationed(query)
+async function locationed(query) 
 {
 const res = await fetch(`${url}${API_KEY}&q=${query}&aqi=no`);
 const allinformation = await res.json();
+console.log(query)
 
     let temp=allinformation.current.temp_c
     let temp_f=allinformation.current.temp_f
@@ -97,5 +101,5 @@ const allinformation = await res.json();
     document.getElementById("w_degree").innerHTML=Wind_Degree
     document.getElementById("w_direction").innerHTML=Wind_direction
     document.getElementById("heading").innerHTML=query
-    document.getElementById("images").src=image
+    // document.getElementById("images").src=image
 }
